@@ -1,0 +1,54 @@
+<%- include('../includes/head.ejs') %>
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+
+            <main>
+                <div class="row mb-3">
+                    <div class="col text-center">
+                        <h3>Work</h3>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <% if (works.length> 0) { %>
+                        <div class="row">
+                            <% for (let work of works) { %>
+                                <div class="col-lg-6 col-md-12">
+                                    <div class="work-image-container">
+                                        <img src="<%= work.imageUrl %>" alt="<%= work.title %>" class="work-image">
+                                        <div class="work-overlay">
+                                            <div class="m-auto">
+                                                <h2>
+                                                    <%= work.title %>
+                                                </h2>
+                                                <p>
+                                                    <%= work.description %>
+                                                </p>
+                                                <p>
+                                                    $ <%= work.price%>
+                                                </p>
+                                                <p>
+                                                    <%= work.links %>
+                                                </p>
+
+                                                <a href="/admin/edit-work/<%= work.id %>?edit=true" class="btn">Edit</a>
+                                                <form action="/admin/delete-work" method="POST">
+                                                    <input type="hidden" value="<%= work.id %>" name="workId">
+                                                    <button class="btn" type="submit">Delete</button>
+                                                </form>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <% } %>
+                        </div>
+                        <% } else { %>
+                            <h1>No Products Found!</h1>
+                            <% } %>
+                </div>
+            </main>
+            <%- include('../includes/end.ejs') %>

@@ -1,0 +1,24 @@
+<%- include('../includes/head.ejs') %>
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+
+            <main>
+                <% if (works.length > 0) { %>
+                    <ul>
+                        <% works.forEach(w => { %>
+                            <li>
+                                <p><%= w.workData.title %> (<%= w.qty %>)</p>
+                                <form action="/cart-delete-item" method="POST">
+                                    <input type="hidden" value="<%= w.workData.id %>" name="workId">
+                                    <button class="btn" type="submit">Delete</button>
+                                </form>
+                            </li>
+                        <% }) %>
+                    </ul>
+                <% } else { %>
+                    <h1>Empty Cart!</h1>
+                <% } %>
+            </main>
+            <%- include('../includes/end.ejs') %>

@@ -1,0 +1,40 @@
+<%- include('../includes/head.ejs') %>
+    <!-- LINK THE STYLE SHEET THAT ONLY APPLIES TO THIS PAGE HERE -->
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+
+            <main>
+                <div class="container-fluid container-p-y">
+                    <div class="row">
+                        <div class="col">
+                            <h1>
+                                <%= work.title %>
+                            </h1>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row mt-4">
+                        <div class="col-lg-6 col-md-12 text-center">
+                            <img src="<%= work.imageUrl %>" alt="<%= work.title %>" style=" height: 300px;">
+                        </div>
+                        <div class="col-lg-6 col-md-12">
+                            <h2>
+                                <%= work.price %>
+                            </h2>
+                            <p>
+                                <%= work.description %>
+                            </p>
+
+                            <div>
+                                <%- include('../includes/add-to-cart.ejs') %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </main>
+            <%- include('../includes/end.ejs') %>
