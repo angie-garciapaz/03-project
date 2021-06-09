@@ -1,1 +1,18 @@
-[]
+[
+    {
+        "id": "0.5835652165154976",
+        "title": "Fit 1",
+        "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F159688%2Fbible-old-bible-historically-christianity-159688.jpeg%3Fcs%3Dsrgb%26dl%3Dopen-book-on-book-159688.jpg%26fm%3Djpg&f=1&nofb=1",
+        "description": "asdf",
+        "links": "adsf",
+        "price": "15"
+    },
+    {
+        "id": "0.6724286084774984",
+        "title": "test 3",
+        "imageUrl": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.OLelJMHGI3BriAOKJcX6vQHaEC%26pid%3DApi&f=1",
+        "description": "test 3",
+        "links": "hello.com",
+        "price": "125"
+    }
+]

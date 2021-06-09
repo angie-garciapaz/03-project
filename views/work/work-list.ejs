@@ -5,11 +5,14 @@
         <%- include('../includes/navigation.ejs') %>
 
             <main>
+
                 <div class="container">
+                    <h3>Work</h3>
+                    <hr>
                     <% if (works.length> 0) { %>
                         <div class="row">
                             <% for (let work of works) { %>
-                                <div class="col-lg-6 col-md-12">
+                                <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="work-image-container">
                                         <img src="<%= work.imageUrl %>" alt="<%= work.title %>" class="work-image">
                                         <div class="work-overlay">
@@ -26,9 +29,13 @@
                                                 <p>
                                                     <%= work.links %>
                                                 </p>
-
-                                                <a href="/works/<%= work.id %>" class="btn">Details</a>
-                                                <%- include('../includes/add-to-cart.ejs', {work: work}) %>
+                                                <div class="row">
+                                                    <div class="col"> <a href="/works/<%= work.id %>"
+                                                            class="btn details-btn">Details</a></div>
+                                                    <div class="col">
+                                                        <%- include('../includes/add-to-cart.ejs', {work: work}) %>
+                                                    </div>
+                                                </div>
 
                                             </div>
                                         </div>

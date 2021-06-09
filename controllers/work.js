@@ -36,31 +36,29 @@ exports.getIndex = (req, res, next) => {
 
 
 exports.getCart = (req, res, next) => {
-  // Cart.getCart(cart => {
-  //   Work.fetchAll(works => {
-  //     const cartWorks = [];
-  //     for (work of works) {
-  //       const cartWorkData = cart.works.find(
-  //         work => work.id === work.id
-  //       );
-  //       if (cartWorkData) {
-  //         cartWorks.push({ workData: work, qty: cartWorkData.qty });
-  //       }
-  //     }
+  Cart.getCart(cart => {
+    Work.fetchAll(works => {
+      const cartWorks = [];
+      for (work of works) {
+        const cartWorkData = cart.works.find(wrk => wrk.id === work.id);
+        if (cartWorkData) {
+          cartWorks.push({ workData: work, qty: cartWorkData.qty });
+        }
+      }
+      res.render('work/cart', {
+        path: '/cart',
+        pageTitle: 'Your Cart',
+        works: cartWorks
+      });
+    });
+  })
 
-  //   });
-  // });
-  res.render('work/cart', {
-    path: '/cart',
-    pageTitle: 'Your Cart',
-    // products: cartWorks
-  });
 };
 
 exports.postCart = (req, res, next) => {
   const workId = req.body.workId;
-  Work.findById(workId, (work) => {
-    Cart.addWork(workId, work.price);
+  Work.findById(workId, work => {
+    Cart.addWork(workId, work.price, );
   })
   res.redirect('/cart');
 };
@@ -68,7 +66,7 @@ exports.postCart = (req, res, next) => {
 exports.postCartDeleteWork = (req, res, next) => {
   const workId = req.body.workId;
   Work.findById(workId, work => {
-    Cart.deleteWork(workId, work.price);
+    Cart.deleteWork(workId, work.price, );
     res.redirect('/cart');
   });
 };

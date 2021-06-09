@@ -44,17 +44,17 @@ exports.getEditWork = (req, res, next) => {
 exports.postEditWork = (req, res, next) => {
     const workId = req.body.workId;
     const updatedTitle = req.body.title;
-    const updatedPrice = req.body.price;
     const updatedImageUrl = req.body.imageUrl;
     const updatedDesc = req.body.description;
     const updatedLinks = req.body.links;
+    const updatedPrice = req.body.price;
     const updatedWork = new Work(
       workId,
       updatedTitle,
       updatedImageUrl,
       updatedDesc,
+      updatedLinks,
       updatedPrice,
-      updatedLinks
     );
     updatedWork.save();
     res.redirect('/admin/works');

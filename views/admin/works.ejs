@@ -5,13 +5,13 @@
         <%- include('../includes/navigation.ejs') %>
 
             <main>
-                <div class="row mb-3">
-                    <div class="col text-center">
-                        <h3>Work</h3>
-                    </div>
-                </div>
-
                 <div class="container">
+                    <div class="row mb-3">
+                        <div class="col">
+                            <h3>Edit Work</h3>
+                        </div>
+                    </div>
+                    <hr>
                     <% if (works.length> 0) { %>
                         <div class="row">
                             <% for (let work of works) { %>
